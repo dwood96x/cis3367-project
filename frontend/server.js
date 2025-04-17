@@ -36,7 +36,7 @@ function getRandomInt(min, max) {
 
 app.get('/', function (req, res) {
     res.render("pages/index", {
-        message: "David's Final Project"
+        message: "CIS 3367 Application"
     });
 });
 
@@ -45,7 +45,7 @@ app.get('/login', function(req, res) {
 })
 
 app.post('/login', function (req, res) {
-    axios.post('http://127.0.0.1:5000/api/auth', querystring.stringify({
+    axios.post('http://127.0.0.1/api/auth', querystring.stringify({
         'username': req.body.username,
         'password': req.body.password
     }), {
@@ -72,7 +72,7 @@ app.post('/login', function (req, res) {
 
 app.get('/facilities', function (req, res) {
     if (authenticated) {
-        axios.get('http://127.0.0.1:5000/api/facility/all', {
+        axios.get('http://127.0.0.1/api/facility/all', {
             params: {
                 'username': username,
                 'password': password
@@ -91,7 +91,7 @@ app.get('/facilities', function (req, res) {
 
 app.post('/facilities/add', function (req, res) {
     if (authenticated) {
-        axios.post('http://127.0.0.1:5000/api/facility', querystring.stringify({
+        axios.post('http://127.0.0.1/api/facility', querystring.stringify({
             'username': username,
             'password': password,
             'name': req.body.name
@@ -106,7 +106,7 @@ app.post('/facilities/add', function (req, res) {
 app.post('/facilities/delete/:id', function (req, res) {
     if (authenticated) {
         let id = req.params.id
-        axios.delete('http://127.0.0.1:5000/api/facility', {
+        axios.delete('http://127.0.0.1/api/facility', {
             params: {
                 'username': username,
                 'password': password,
@@ -122,7 +122,7 @@ app.post('/facilities/delete/:id', function (req, res) {
 
 app.get('/classrooms', function (req, res) {
     if (authenticated) {
-        axios.get('http://127.0.0.1:5000/api/classroom/all', {
+        axios.get('http://127.0.0.1/api/classroom/all', {
             params: {
                 'username': username,
                 'password': password
@@ -141,7 +141,7 @@ app.get('/classrooms', function (req, res) {
 
 app.post('/classrooms/add', function (req, res) {
     if (authenticated) {
-        axios.post('http://127.0.0.1:5000/api/classroom', querystring.stringify({
+        axios.post('http://127.0.0.1/api/classroom', querystring.stringify({
             'username': username,
             'password': password,
             'name': req.body.name,
@@ -158,7 +158,7 @@ app.post('/classrooms/add', function (req, res) {
 app.post('/classrooms/delete/:id', function (req, res) {
     if (authenticated) {
         let id = req.params.id
-        axios.delete('http://127.0.0.1:5000/api/classroom', {
+        axios.delete('http://127.0.0.1/api/classroom', {
             params: {
                 'username': username,
                 'password': password,
@@ -174,7 +174,7 @@ app.post('/classrooms/delete/:id', function (req, res) {
 
 app.get('/teachers', function (req, res) {
     if (authenticated) {
-        axios.get('http://127.0.0.1:5000/api/teacher/all', {
+        axios.get('http://127.0.0.1/api/teacher/all', {
             params: {
                 'username': username,
                 'password': password
@@ -193,7 +193,7 @@ app.get('/teachers', function (req, res) {
 
 app.post('/teachers/add', function (req, res) {
     if (authenticated) {
-        axios.post('http://127.0.0.1:5000/api/teacher', querystring.stringify({
+        axios.post('http://127.0.0.1/api/teacher', querystring.stringify({
             'username': username,
             'password': password,
             'firstname': req.body.firstname,
@@ -210,7 +210,7 @@ app.post('/teachers/add', function (req, res) {
 app.post('/teachers/delete/:id', function (req, res) {
     if (authenticated) {
         let id = req.params.id
-        axios.delete('http://127.0.0.1:5000/api/teacher', {
+        axios.delete('http://127.0.0.1/api/teacher', {
             params: {
                 'username': username,
                 'password': password,
@@ -226,7 +226,7 @@ app.post('/teachers/delete/:id', function (req, res) {
 
 app.get('/children', function (req, res) {
     if (authenticated) {
-        axios.get('http://127.0.0.1:5000/api/child/all', {
+        axios.get('http://127.0.0.1/api/child/all', {
             params: {
                 'username': username,
                 'password': password
@@ -245,7 +245,7 @@ app.get('/children', function (req, res) {
 
 app.post('/children/add', function (req, res) {
     if (authenticated) {
-        axios.post('http://127.0.0.1:5000/api/child', querystring.stringify({
+        axios.post('http://127.0.0.1/api/child', querystring.stringify({
             'username': username,
             'password': password,
             'firstname': req.body.firstname,
@@ -263,7 +263,7 @@ app.post('/children/add', function (req, res) {
 app.post('/children/delete/:id', function (req, res) {
     if (authenticated) {
         let id = req.params.id
-        axios.delete('http://127.0.0.1:5000/api/child', {
+        axios.delete('http://127.0.0.1/api/child', {
             params: {
                 'username': username,
                 'password': password,

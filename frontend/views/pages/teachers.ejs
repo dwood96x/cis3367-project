@@ -1,0 +1,60 @@
+<html>
+    <head>
+        <%- include('../partials/head'); %>
+        <%- include('../partials/navbar'); %>
+    </head>
+    <body class="container">
+        <h1>
+            Teachers
+        </h1>
+        <div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">First Name</th>
+                        <th scope="col">Last Name</th>
+                        <th scope="col">Room</th>
+                        <th scope="col">Options</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <% teachers.forEach(function(teacher) { %>
+                    <tr>
+                        <td> <%= teacher[0] %></td>
+                        <td> <%= teacher[1] %></td>
+                        <td> <%= teacher[2] %></td>
+                        <td> <%= teacher[3] %></td>
+                        <td>
+                            <form action="<%= '/teachers/delete/'+ teacher[0] %>" method="post" >
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                <% }) %>
+                </tbody>
+            </table>
+            <h1>
+                Create Teacher
+            </h1>
+            <form action="/teachers/add" method="post">
+                <div class="form-group">
+                    <label class="form-label">First Name</label>
+                    <input type="text" id="firstname" name="firstname" class="form-control" placeholder="First Name" required
+                    autofocus>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Last Name</label>
+                    <input type="text" id="lastname" name="lastname" class="form-control" placeholder="Last Name" required
+                    autofocus>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Room</label>
+                    <input type="text" id="room" name="room" class="form-control" placeholder="Room" required
+                    autofocus>
+                </div>
+                <input class="btn btn-lg btn-primary btn-block" type="submit">
+            </form>
+        </div>
+    </body>
+</html>

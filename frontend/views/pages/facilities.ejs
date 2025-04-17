@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <%- include('../partials/head'); %>
+        <%- include('../partials/navbar'); %>
+    </head>
+    <body class="container">
+        <h1>
+            Facilities
+        </h1>
+        <div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Options</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <% facilities.forEach(function(facility) { %>
+                    <tr>
+                        <td> <%= facility[0] %></td>
+                        <td> <%= facility[1] %></td>
+                        <td>
+                            <form action="<%= '/facilities/delete/'+ facility[0] %>" method="post" >
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                <% }) %>
+                </tbody>
+
+            </table>
+
+            <h1>
+                Create Facility
+            </h1>
+            <form action="/facilities/add" method="post">
+                <div class="form-group">
+                    <label for="exampleInputEmail1" class="form-label">Name</label>
+                    <input type="text" id="name" name="name" class="form-control" placeholder="Facility Name" required
+                    autofocus>
+                </div>
+                <input class="btn btn-lg btn-primary btn-block" type="submit">
+            </form>
+        </div>
+    </body>
+</html>

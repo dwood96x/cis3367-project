@@ -379,7 +379,7 @@ def reset():
     sql.initializeDatabase()
     return 'Database successfully reset!'
 
-@app.route('/')
+@app.route('/api/')
 def hello_world():  # put application's code here
     return 'Hello World!'
 

@@ -384,4 +384,5 @@ def hello_world():  # put application's code here
     return 'Hello World!'
 
 # Run app to listen for request
-app.run()
+if __name__ == "__main__":
+    app.run()
